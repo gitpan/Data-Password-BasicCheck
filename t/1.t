@@ -6,8 +6,7 @@ use strict ;
 
 BEGIN { use_ok('Data::Password::BasicCheck') };
 
-my ($username,@userinfo) =
-  (qw(bronto Marco Marongiu),'San Gavino') ;
+my @userinfo = (qw(bronto Marco Marongiu),'San Gavino') ;
 my $ok = Data::Password::BasicCheck->OK ;
 
 
@@ -28,10 +27,10 @@ my $ok = Data::Password::BasicCheck->OK ;
 		   'pitbull@',   # doesn't contain digits
 		   '!@#$1234',   # doesn't contain alphas
 		  ) ;
-  is($ok,$dpbc58->check($username,$good,@userinfo),"$good is good") ;
+  is($ok,$dpbc58->check($good,@userinfo),"$good is good") ;
 
   foreach (@passwords) {
-    my $check = $dpbc58->check($username,$_,@userinfo) ;
+    my $check = $dpbc58->check($_,@userinfo) ;
     isnt($ok,$check,"$_: $check") ;
   }
 
@@ -54,7 +53,7 @@ my $ok = Data::Password::BasicCheck->OK ;
 		  ) ;
 
   foreach (@passwords) {
-    my $check = $dpbc58->check($username,$_,@userinfo) ;
+    my $check = $dpbc58->check($_,@userinfo) ;
     isnt($ok,$check,"$_: $check") ;
   }
 }
@@ -75,14 +74,8 @@ my $ok = Data::Password::BasicCheck->OK ;
 		  ) ;
 
   foreach (@passwords) {
-    my $check = $dpbc58->check($username,$_,@userinfo) ;
+    my $check = $dpbc58->check($_,@userinfo) ;
     is($ok,$check,"$_: $check") ;
   }
 }
-
-
-#########################
-
-# Insert your test code below, the Test::More module is use()ed here so read
-# its man page ( perldoc Test::More ) for help writing this test script.
 
