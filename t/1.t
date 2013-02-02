@@ -1,4 +1,4 @@
-# $Id: 1.t,v 1.3 2003/09/18 20:38:12 bronto Exp $
+# $Id: 1.t,v 1.3 2003-09-18 20:38:12 bronto Exp $
 
 use Test::More qw(no_plan) ;
 
